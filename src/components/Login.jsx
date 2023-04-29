@@ -39,7 +39,7 @@ const Login = () => {
             <img src={logo} width="130px" />
           </div>
 
-          <div className="shadow-2xl">
+          <div className="shadow-2xl flex flex-col">
             <GoogleLogin
               clientId={`${process.env.REACT_APP_GOOGLE_API_TOKEN}`}
               render={(renderProps) => (
@@ -56,6 +56,7 @@ const Login = () => {
               onFailure={responseGoogle}
               cookiePolicy="single_host_origin"
             />
+          <h3 className="text-white absolute bottom-[3%]">Made 💻 by Nameera and Saba </h3>
           </div>
         </div>
       </div>
