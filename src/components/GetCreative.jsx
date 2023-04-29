@@ -18,11 +18,10 @@ const Create = ({ user }) => {
   const [error, setError] = useState(false);
 
   const navigate = useNavigate();
-
   const createHandler = async () => {
     setLoading(true);
     const res = await axios.get(
-      `http://localhost:5303/api/v1/dalle/generate/${title}`
+      `${process.env.REACT_APP_API_URL}/api/v1/dalle/generate/${title}`
     );
     if (res.data) {
       setLoading(false);
@@ -33,14 +32,15 @@ const Create = ({ user }) => {
   };
 
   const generateText = async () => {
-    setTextLoading(true);
-    console.log("first");
+    setLoading(true);
+
     const res = axios.get(
-      `http://localhost:5303/api/v1/dalle/generate-text`
+      `${process.env.REACT_APP_API_URL}/api/v1/dalle/generate-text`
     );
     const response = await res;
-    console.log(response.data)
+    console.log(response.data);
     setTitle(response.data);
+    setLoading(false);
   };
 
   const savePin = () => {
