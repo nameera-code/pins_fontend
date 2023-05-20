@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { HiMenu } from "react-icons/hi";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { Link, Route, Routes } from "react-router-dom";
-
+import logo1 from "../assets/skai-white.png";
 import { Sidebar, UserProfile } from "../components";
 import { userQuery } from "../utils/data";
 import { client } from "../client";
@@ -22,7 +22,7 @@ const Home = () => {
     } else {
       document.documentElement.classList.add("dark");
     }
-    console.log(isDarkTheme)
+    console.log(isDarkTheme);
     setIsDarkTheme(!isDarkTheme);
   };
 
@@ -43,6 +43,8 @@ const Home = () => {
     scrollRef.current.scrollTo(0, 0);
   });
 
+  const logoImage = isDarkTheme ? logo : logo1;
+
   return (
     <div className="flex bg-gray-50 dark:bg-[#101314] md:flex-row flex-col h-screen transition-height duration-75 ease-out dark:text-white">
       <div className="hidden md:flex h-screen flex-initial">
@@ -56,7 +58,7 @@ const Home = () => {
             onClick={() => setToggleSidebar(true)}
           />
           <Link to="/">
-            <img src={logo} alt="logo" className="w-28" />
+            <img src={logoImage} alt="logo" className="w-full" />
           </Link>
           <Link to={`user-profile/${user?._id}`}>
             <img
