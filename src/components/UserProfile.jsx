@@ -78,7 +78,7 @@ const UserProfile = () => {
                 render={(renderProps) => (
                   <button
                     type="button"
-                    className=" bg-white p-2 rounded-full cursor-pointer outline-none shadow-md"
+                    className=" bg-white dark:bg-[#222831] p-2 rounded-full cursor-pointer outline-none shadow-md"
                     onClick={renderProps.onClick}
                     disabled={renderProps.disabled}
                   >

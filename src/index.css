@@ -1,5 +1,17 @@
 @tailwind base;
 @tailwind components;
+
+.light-theme {
+    --color-primary: #1e293b;
+    --color-secondary: #e2e8f0;
+}
+
+.dark-theme {
+    --color-primary: #991b1b;
+    --color-secondary: #fecaca;
+}
+
+ 
 @tailwind utilities;
 
 @layer base {

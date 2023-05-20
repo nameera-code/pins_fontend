@@ -67,7 +67,7 @@ const PinDetail = ({ user }) => {
     <>
       {pinDetail && (
         <div
-          className="flex xl:flex-row flex-col m-auto bg-white"
+          className="flex xl:flex-row flex-col m-auto bg-white dark:bg-[#222831]"
           style={{ maxWidth: "1500px", borderRadius: "32px" }}
         >
           <div className="flex justify-center items-center md:items-start flex-initial">
@@ -107,7 +107,7 @@ const PinDetail = ({ user }) => {
             </div>
             <Link
               to={`/user-profile/${pinDetail?.postedBy._id}`}
-              className="flex gap-2 mt-5 items-center bg-white rounded-lg "
+              className="flex gap-2 mt-5 items-center bg-white dark:bg-[#222831] rounded-lg "
             >
               <img
                 src={pinDetail?.postedBy.image}
@@ -120,7 +120,7 @@ const PinDetail = ({ user }) => {
             <div className="max-h-370 overflow-y-auto">
               {pinDetail?.comments?.map((item) => (
                 <div
-                  className="flex gap-2 mt-5 items-center bg-white rounded-lg"
+                  className="flex gap-2 mt-5 items-center bg-white dark:bg-[#222831] rounded-lg"
                   key={item.comment}
                 >
                   <img

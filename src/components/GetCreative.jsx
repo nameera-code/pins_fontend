@@ -14,7 +14,6 @@ const Create = ({ user }) => {
   const [category, setCategory] = useState("");
   const [imageurl, setImageurl] = useState("");
   const [loading, setLoading] = useState(false);
-  const [textLoading, setTextLoading] = useState(false);
   const [error, setError] = useState(false);
 
   const navigate = useNavigate();
@@ -44,7 +43,7 @@ const Create = ({ user }) => {
   };
 
   const savePin = () => {
-    if (title && about && destination && imageurl && category) {
+    if (title && about && imageurl && category) {
       setError(false);
       const doc = {
         _type: "pin",
@@ -71,24 +70,24 @@ const Create = ({ user }) => {
 
   return (
     <div className="flex flex-col  items-center mt-5 lg:h-4/5  ">
-      <div className=" bg-white flex items-center lg:p-5 p-3 lg:w-4/5 w-full mb-2 text-black ">
+      <div className=" bg-white dark:bg-[#222831] flex items-center lg:p-5 p-3 lg:w-4/5 w-full mb-2 text-black ">
         <input
           type="text"
           placeholder="Add your text"
           value={title}
-          className="outline-none text-2xl sm:text-3xl font-bold border-b-2 border-gray-200 p-2 w-full "
+          className="outline-none text-2xl sm:text-3xl font-bold border-b-2 border-gray-200 p-2 w-full dark:bg-[#101314] dark:border-blue-900"
           onChange={(e) => setTitle(e.target.value)}
         />
         <button
           type="button"
-          className="bg-red-500 text-white font-bold p-2 rounded-full w-28 outline-none"
+          className="bg-red-500 dark:bg-[#00ADB5] text-white font-bold p-2 rounded-full w-28 outline-none"
           onClick={createHandler}
         >
           Create
         </button>
         <button
           type="button"
-          className="bg-red-400 hover:bg-red-500 mx-3 text-white font-bold p-3 rounded-full outline-none"
+          className="bg-red-400 hover:bg-red-500 dark:bg-[#00ADB5] mx-3 text-white font-bold p-3 rounded-full outline-none "
           onClick={generateText}
         >
           <FaMagic />
@@ -111,7 +110,7 @@ const Create = ({ user }) => {
             <input
               type="text"
               placeholder="Add your title"
-              className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2"
+              className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2 dark:bg-[#101314]"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
@@ -119,7 +118,7 @@ const Create = ({ user }) => {
             <input
               type="text"
               placeholder="Tell everyone what your Pin is about"
-              className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2"
+              className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2 dark:bg-[#101314] "
               value={about}
               onChange={(e) => setAbout(e.target.value)}
             />
@@ -128,7 +127,7 @@ const Create = ({ user }) => {
               placeholder="Add a destination link"
               onChange={(e) => setDestination(e.target.value)}
               value={imageurl}
-              className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2"
+              className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2 dark:bg-[#101314]"
             />
 
             <div className="flex flex-col text-black">
@@ -141,15 +140,18 @@ const Create = ({ user }) => {
                     setCategory(e.target.value);
                   }}
                   value={category}
-                  className="outline-none w-4/5 text-base border-b-2 border-gray-200 p-2 rounded-md cursor-pointer"
+                  className="outline-none w-4/5 text-base border-b-2 border-gray-200 p-2 dark:bg-[#101314] rounded-md cursor-pointer"
                 >
-                  <option value="others" className="sm:text-bg bg-white">
+                  <option
+                    value="others"
+                    className="sm:text-bg bg-white dark:bg-[#222831]"
+                  >
                     Select Category
                   </option>
                   {categories.map((item) => (
                     <option
                       key={item.name}
-                      className="text-base border-0 outline-none capitalize bg-white text-black "
+                      className="text-base border-0 outline-none capitalize bg-white  dark:bg-[#222831] text-black "
                       value={item.name}
                     >
                       {item.name}
@@ -161,7 +163,7 @@ const Create = ({ user }) => {
                 <button
                   type="button"
                   onClick={savePin}
-                  className="bg-red-500 text-white font-bold p-2 rounded-full w-28 outline-none"
+                  className="bg-red-500 dark:bg-[#00ADB5] text-white font-bold p-2 rounded-full w-28 outline-none"
                 >
                   Save Pin
                 </button>

@@ -10,9 +10,9 @@ const Button = ({ loading, title, onClick }) => {
       {loading ? (
         <div className="grid gap-1">
           <div className="flex items-center justify-center space-x-2 animate-pulse">
-            <div className="w-2 h-2 bg-white rounded-full"></div>
-            <div className="w-2 h-2 bg-white rounded-full"></div>
-            <div className="w-2 h-2 bg-white rounded-full"></div>
+            <div className="w-2 h-2 bg-white dark:bg-[#222831] rounded-full"></div>
+            <div className="w-2 h-2 bg-white dark:bg-[#222831] rounded-full"></div>
+            <div className="w-2 h-2 bg-white dark:bg-[#222831] rounded-full"></div>
           </div>
         </div>
       ) : (
