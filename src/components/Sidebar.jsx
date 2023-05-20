@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { RiHomeFill } from "react-icons/ri";
 import { IoIosArrowForward } from "react-icons/io";
@@ -12,10 +12,13 @@ const isNotActiveStyle =
 const isActiveStyle =
   "flex items-center px-5 gap-3 font-extrabold border-r-2 border-black  transition-all duration-200 ease-in-out capitalize dark:text-white ";
 
-const Sidebar = ({ closeToggle, user }) => {
+const Sidebar = ({ closeToggle, user, isDarkTheme }) => {
   const handleCloseSidebar = () => {
     if (closeToggle) closeToggle(false);
   };
+  const logoImage = isDarkTheme ? logo : logo1;
+
+  useEffect(() => {}, [isDarkTheme]);
 
   useEffect(() => {}, []);
 
@@ -27,11 +30,7 @@ const Sidebar = ({ closeToggle, user }) => {
           className="flex px-5 gap-2 my-6 pt-1 w-190 items-center dark:text-white"
           onClick={handleCloseSidebar}
         >
-          {document.body.classList.contains("dark") ? (
-            <img src={logo1} alt="logo" className="w-full" />
-          ) : (
-            <img src={logo} alt="logo" className="w-full" />
-          )}
+          <img src={logoImage} alt="logo" className="w-full" />
         </Link>
         <div className="flex flex-col gap-5">
           <NavLink

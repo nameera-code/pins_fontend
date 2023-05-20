@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import { Navbar, Feed, PinDetail, CreatePin, Search } from "../components";
 import GetCreative from "../components/GetCreative";
 
-const Pins = ({ user }) => {
+const Pins = ({ user,toggleTheme,isDarkTheme }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
@@ -14,6 +14,8 @@ const Pins = ({ user }) => {
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
           user={user && user}
+          toggleTheme={toggleTheme}
+          isDarkTheme={isDarkTheme}
         />
       </div>
       <div className="h-full">
