@@ -17,15 +17,17 @@ const Create = ({ user }) => {
   const [error, setError] = useState(false);
 
   const navigate = useNavigate();
+
   const createHandler = async () => {
     setLoading(true);
     const res = await axios.get(
       `${process.env.REACT_APP_API_URL}/api/v1/dalle/generate/${title}`
     );
     if (res.data) {
+      console.log(res.data.url);
       setLoading(false);
       setDestination(imageurl);
-      setImageurl(res.data.image.src);
+      setImageurl(res.data.url);
       setShowModal(true);
     }
   };
@@ -37,7 +39,6 @@ const Create = ({ user }) => {
       `${process.env.REACT_APP_API_URL}/api/v1/dalle/generate-text`
     );
     const response = await res;
-    console.log(response.data);
     setTitle(response.data);
     setLoading(false);
   };
@@ -75,7 +76,7 @@ const Create = ({ user }) => {
           type="text"
           placeholder="Add your text"
           value={title}
-          className="outline-none text-2xl sm:text-3xl font-bold border-b-2 border-gray-200 p-2 w-full dark:bg-[#101314] dark:border-blue-900"
+          className="outline-none text-2xl sm:text-3xl font-bold border-b-2 border-gray-200 p-2 w-full dark:bg-[#101314] dark:border-blue-900 dark:text-white"
           onChange={(e) => setTitle(e.target.value)}
         />
         <button
@@ -114,7 +115,6 @@ const Create = ({ user }) => {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
-
             <input
               type="text"
               placeholder="Tell everyone what your Pin is about"
